@@ -109,7 +109,7 @@ const en = {
       ["Dashboard", "every game on your machine on one page, in the theme you like, redrawn as the games change. It runs locally; reach it from your phone through Tailscale or an SSH forward."],
     ],
     ask: "or just ask: “start the dashboard”",
-    how: "Cloned from gamedev-kit-board, built once per version, started on `http://localhost:3100`. Needs git and Node.js.",
+    how: "Cloned from gamedev-kit-board, built once per version, started on `http://127.0.0.1:3100`. Needs git and Node.js.",
     shot: "The status board of a sample game",
   },
   commands: {
@@ -267,7 +267,7 @@ const ko: Copy = {
       ["대시보드", "내 컴퓨터의 모든 게임을 한 페이지에, 원하는 테마로, 게임이 바뀔 때마다 다시 그립니다. 로컬에서 돌고, 폰에서는 Tailscale이나 SSH 포워드로 봅니다."],
     ],
     ask: "또는 그냥 “대시보드 띄워줘”라고 말하세요",
-    how: "gamedev-kit-board를 클론해 버전마다 한 번 빌드하고 `http://localhost:3100`에서 띄웁니다. git과 Node.js가 필요합니다.",
+    how: "gamedev-kit-board를 클론해 버전마다 한 번 빌드하고 `http://127.0.0.1:3100`에서 띄웁니다. git과 Node.js가 필요합니다.",
     shot: "예시 게임의 현황판",
   },
   commands: {
