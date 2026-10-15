@@ -155,3 +155,4 @@ code { font: 600 .88em var(--mono); color: var(--lime); }
 .lang a[aria-current="true"] { background: rgba(61,255,176,.14); color: var(--mint); }
 :lang(ko) h1, :lang(ko) h2 { word-break: keep-all; letter-spacing: -.03em; }
 :lang(ko) p, :lang(ko) li, :lang(ko) dd { word-break: keep-all; }
+.shot.wide { display: block; width: 100%; margin-top: 24px; }

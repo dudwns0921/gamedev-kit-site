@@ -136,8 +136,9 @@ export default function Landing({ lang }: { lang: Lang }) {
               <CopyBlock text={SERVE} label={t.board.ask} words={c} />
               <p className="dim small"><Inline text={t.board.how} /> <a href={BOARD_REPO}>gamedev-kit-board ↗</a></p>
             </div>
-            <img className="shot" src="/board.png" alt={t.board.shot} />
+            <img className="shot" src="/dashboard.png" alt={t.board.shot} />
           </div>
+          <img className="shot wide" src="/review.png" alt={t.board.shot2} />
         </section>
 
         <section id="commands" className="in sec">
