@@ -17,9 +17,6 @@ export default function Landing({ lang }: { lang: Lang }) {
           <nav>
             <a href="#why">{t.nav.why}</a>
             <a href="#start">{t.nav.start}</a>
-            <a href="#use">{t.nav.use}</a>
-            <a href="#board">{t.nav.board}</a>
-            <a href="#commands">{t.nav.commands}</a>
           </nav>
           <div className="nav-right">
             <LangSwitch lang={lang} />
@@ -46,22 +43,7 @@ export default function Landing({ lang }: { lang: Lang }) {
         </section>
 
         <section className="in sec">
-          <div className="chat" aria-label={t.chat.label}>
-            <div className="msg you"><span>{t.chat.you}</span><p><code>/gamedev-kit:cycle</code> {t.chat.ask}</p></div>
-            <div className="msg kit"><span>{t.chat.kit}</span>
-              <div>
-                <p>{t.chat.written}</p>
-                <ul className="decide">
-                  {t.chat.d.map(([id, q, o]) => <li key={id}><b>{id}</b> {q}{o ? <em>{o}</em> : null}</li>)}
-                </ul>
-                <p className="dim">{t.chat.waves}</p>
-              </div>
-            </div>
-            <div className="msg you"><span>{t.chat.you}</span><p>{t.chat.answer}</p></div>
-            <div className="msg kit"><span>{t.chat.kit}</span><p>{t.chat.built}</p></div>
-            <div className="msg you"><span>{t.chat.you}</span><p><code>/gamedev-kit:playtest</code> — {t.chat.problems}</p></div>
-            <div className="msg kit"><span>{t.chat.kit}</span><p>{t.chat.fixed}</p></div>
-          </div>
+          <img className="shot wide" src="/dashboard.png" alt={t.hero.shot} />
         </section>
 
         <section id="why" className="in sec">
@@ -77,7 +59,6 @@ export default function Landing({ lang }: { lang: Lang }) {
               </article>
             ))}
           </div>
-          <p className="note">{t.why.note}</p>
         </section>
 
         <section id="start" className="in sec">
@@ -107,80 +88,6 @@ export default function Landing({ lang }: { lang: Lang }) {
               </div>
             </div>
           </div>
-        </section>
-
-        <section id="use" className="in sec">
-          <span className="eyebrow">{t.use.eyebrow}</span>
-          <h2>{t.use.title}</h2>
-          <div className="flowgrid">
-            {t.use.cards.map((k) => (
-              <article key={k.title} className="card">
-                <span className="tag">{k.tag}</span>
-                <h3>{k.title}</h3>
-                <p><Inline text={k.text} /></p>
-              </article>
-            ))}
-          </div>
-          <div className="auto">
-            <h3>{t.use.autoTitle}</h3>
-            <p>{t.use.auto}</p>
-          </div>
-        </section>
-
-        <section id="board" className="in sec">
-          <span className="eyebrow">{t.board.eyebrow}</span>
-          <h2>{t.board.title}</h2>
-          <div className="split">
-            <div>
-              <ul className="checks">{t.board.items.map(([b, s]) => <li key={b}><b>{b}</b> — {s}</li>)}</ul>
-              <CopyBlock text={SERVE} label={t.board.ask} words={c} />
-              <p className="dim small"><Inline text={t.board.how} /> <a href={BOARD_REPO}>gamedev-kit-board ↗</a></p>
-            </div>
-            <img className="shot" src="/dashboard.png" alt={t.board.shot} />
-          </div>
-          <img className="shot wide" src="/review.png" alt={t.board.shot2} />
-        </section>
-
-        <section id="commands" className="in sec">
-          <span className="eyebrow">{t.commands.eyebrow}</span>
-          <h2>{t.commands.title}</h2>
-          <div className="cmds">
-            {t.commands.groups.map((g) => (
-              <div key={g.group} className="cmdgroup">
-                <h3>{g.group}</h3>
-                <dl>
-                  {g.rows.map(([cmd, d]) => (
-                    <div key={cmd}>
-                      <dt><code>/gamedev-kit:{cmd}</code></dt>
-                      <dd><Inline text={d} /></dd>
-                    </div>
-                  ))}
-                </dl>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <section className="in sec">
-          <span className="eyebrow">{t.voice.eyebrow}</span>
-          <h2>{t.voice.title}</h2>
-          <div className="tiers">{t.voice.tiers.map(([b, s]) => <div key={b}><b>{b}</b><span>{s}</span></div>)}</div>
-          <p className="dim"><Inline text={t.voice.setup} /></p>
-        </section>
-
-        <section className="in sec">
-          <span className="eyebrow">{t.assets.eyebrow}</span>
-          <h2>{t.assets.title}</h2>
-          <div className="flowgrid three">
-            {t.assets.cards.map(([h, p]) => <article key={h} className="card"><h3>{h}</h3><p><Inline text={p} /></p></article>)}
-          </div>
-        </section>
-
-        <section className="in sec">
-          <span className="eyebrow">{t.update.eyebrow}</span>
-          <h2>{t.update.title}</h2>
-          <CopyBlock text={UPDATE} label={t.update.label} words={c} />
-          <p className="dim small">{t.update.note}</p>
         </section>
 
         <section className="in final">
