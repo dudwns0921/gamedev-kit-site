@@ -122,7 +122,7 @@ export default function Landing({ lang }: { lang: Lang }) {
             ))}
           </div>
           <div className="auto">
-            <h3>{t.use.autoTitle} <code>/gamedev-kit:cycle auto &lt;goal&gt;</code></h3>
+            <h3>{t.use.autoTitle}</h3>
             <p>{t.use.auto}</p>
           </div>
         </section>

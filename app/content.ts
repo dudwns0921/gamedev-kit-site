@@ -59,9 +59,9 @@ const en = {
       { img: "/board.png", alt: "The status board: stage cards in play order, each with a completion ring and meters",
         title: "You always see where the game stands",
         text: "A board draws the game as the player meets it — done, placeholder, not made, problem — and what is still undecided. A script reads it from your documents; a hook keeps it current." },
-      { img: "/compounds.svg", alt: "Three games in a row; your voice and your rules grow under each one",
+      { img: "/compounds.svg", alt: "Three games in a row; your rules grow under each one",
         title: "It gets better at your games",
-        text: "Your voice — how you decide when it could go either way — and your rules — the traps you hit — pile up in a private repository and load into every game you make next." },
+        text: "Your rules — the traps you hit and the ways you found to check — pile up on your machine and load into every game you make next. Once you say so, they go on to the kit, where the ones that hold for anyone become rules for everybody." },
     ],
     note: "You stay the designer throughout: rules, numbers and looks are asked, not assumed. The GDD, the cycle documents and the code are plain files in your repository. It is built for a game you make over weeks — for a small game out of one prompt, a prompt-to-game platform is faster.",
   },
@@ -98,7 +98,7 @@ const en = {
         text: "`deploy` builds, shows the platform, target, version and size, and uploads only on your approval — itch.io for Godot and web builds, an App Bundle for Google Play with Unity." },
     ],
     autoTitle: "Away from the keyboard?",
-    auto: "Runs from the goal to the end of the build without asking. Your voice decides, and each decision made for you is marked until you accept or overturn it. Money, anything that leaves your machine, and anything that discards your work stay yours. It always stops before play.",
+    auto: "Every question comes to you as a decision, with the pictures to look at. Answer on the dashboard — from your phone too. The game's open session picks the answers up; with none open, the dashboard can run Claude for them once you allow it, and it stops when it needs you again. Uploading, pushing and posting stay yours.",
   },
   board: {
     eyebrow: "The board and the dashboard",
@@ -121,7 +121,7 @@ const en = {
         ["start", "GDD → concept → first goal, then hands over to cycle. Stages can be skipped."],
       ] },
       { group: "Make", rows: [
-        ["cycle", "One cycle through a single document: `<goal>` · `next` · `status` · `auto <goal>`. `next` is also how a new session picks up."],
+        ["cycle", "One cycle through a single document: `<goal>` · `next` · `status`. `next` is also how a new session picks up."],
         ["playtest", "Problem list → analysis document → one agent per task. `plan` analyses only, `implement` builds only."],
       ] },
       { group: "See where you are", rows: [
@@ -135,20 +135,19 @@ const en = {
       ] },
       { group: "Ship and give back", rows: [
         ["deploy", "Check, build, show what goes where, upload on your approval — itch.io or Google Play."],
-        ["feedback", "Sends the lessons that hold for anyone's game to the kit as issues — only the lines you approve."],
-        ["voice", "Shows how you decide and the rules you have gathered, and lets you correct them."],
+        ["feedback", "Your own rules from every game — shows them, and sends them to the kit as issues, as you said they should go."],
       ] },
     ] as { group: string; rows: [string, string][] }[],
   },
   voice: {
-    eyebrow: "Your voice and your rules",
+    eyebrow: "Your rules",
     title: "A lesson learned once is not learned again.",
     tiers: [
       ["This game only", "→ that game's CLAUDE.md, at once"],
-      ["Your next game too", "→ your own rules, in your private repository — every game you make"],
-      ["Anyone's game", "→ sent to the kit as an issue you approve, and becomes a rule for everybody"],
+      ["Your next game too", "→ your own rules, on your machine — every game you make, from the next session"],
+      ["Anyone's game", "→ sent to the kit as an issue, and becomes a rule for everybody once games agree"],
     ],
-    setup: "Set it up once: create an empty private repository, then `/gamedev-kit:voice setup <its address>`. Without one, everything still works on that machine.",
+    setup: "You are asked once whether your rules may go to the kit as public issues. Anything naming your game or a date is held back for you to reword; whether a rule holds for everyone, the kit sorts out.",
   },
   assets: {
     eyebrow: "Assets — optional",
@@ -217,9 +216,9 @@ const ko: Copy = {
       { img: "/board.png", alt: "현황판: 플레이 순서대로 놓인 단계 카드, 각각 완성도 링과 막대",
         title: "게임이 어디까지 왔는지 늘 보입니다",
         text: "현황판은 플레이어가 만나는 순서대로 게임을 그립니다 — 완료, 임시, 미제작, 문제, 그리고 아직 정하지 않은 것까지. 스크립트가 문서에서 읽어 그리고, hook이 늘 최신으로 유지합니다." },
-      { img: "/compounds.svg", alt: "이어지는 게임 세 개; 게임마다 보이스와 규칙이 쌓여 감",
+      { img: "/compounds.svg", alt: "이어지는 게임 세 개; 게임마다 규칙이 쌓여 감",
         title: "당신의 게임에 점점 익숙해집니다",
-        text: "갈림길에서 당신이 어떻게 고르는지(보이스)와 당신이 빠졌던 함정(규칙)이 비공개 저장소에 쌓이고, 다음에 만드는 모든 게임에 함께 들어갑니다." },
+        text: "당신이 빠졌던 함정과 찾아낸 확인 방법(규칙)이 당신 컴퓨터에 쌓이고, 다음에 만드는 모든 게임에 함께 들어갑니다. 허락하면 키트로도 보내져, 누구에게나 통하는 것은 모두의 규칙이 됩니다." },
     ],
     note: "끝까지 기획자는 당신입니다. 규칙·숫자·모습은 짐작하지 않고 묻습니다. 기획서, 사이클 문서, 코드는 모두 당신 저장소의 평범한 파일입니다. 몇 주에 걸쳐 만드는 게임을 위한 키트입니다 — 프롬프트 하나로 작은 게임을 바로 원한다면 프롬프트-투-게임 서비스가 더 빠릅니다.",
   },
@@ -256,7 +255,7 @@ const ko: Copy = {
         text: "`deploy`가 빌드하고, 플랫폼·대상·버전·크기를 보여 주고, 승인할 때만 올립니다 — Godot와 웹은 itch.io로, Unity는 Google Play용 App Bundle로." },
     ],
     autoTitle: "자리를 비우신다면?",
-    auto: "목표부터 구현 끝까지 묻지 않고 진행합니다. 당신의 보이스가 대신 정하고, 대신 정한 결정은 당신이 받아들이거나 뒤집을 때까지 표시해 둡니다. 돈이 드는 것, 당신의 컴퓨터 밖으로 나가는 것, 만든 것을 버리는 것은 여전히 당신이 정합니다. 언제나 플레이 직전에 멈춥니다.",
+    auto: "모든 질문은 볼 그림과 함께 결정으로 당신에게 옵니다. 대시보드에서 답하세요 — 폰에서도. 열린 세션이 답을 가져가고, 열린 세션이 없으면 허락한 경우 대시보드가 Claude를 돌려 다시 당신이 필요할 때까지 진행합니다. 올리기·푸시·게시는 여전히 당신 몫입니다.",
   },
   board: {
     eyebrow: "현황판과 대시보드",
@@ -279,7 +278,7 @@ const ko: Copy = {
         ["start", "기획서 → 컨셉 → 첫 목표, 그리고 cycle로 넘깁니다. 단계는 건너뛸 수 있습니다."],
       ] },
       { group: "만들기", rows: [
-        ["cycle", "문서 하나로 한 사이클: `<목표>` · `next` · `status` · `auto <목표>`. 새 세션에서 이어 갈 때도 `next`."],
+        ["cycle", "문서 하나로 한 사이클: `<목표>` · `next` · `status`. 새 세션에서 이어 갈 때도 `next`."],
         ["playtest", "문제 목록 → 분석 문서 → 작업마다 에이전트 하나. `plan`은 분석만, `implement`는 구현만."],
       ] },
       { group: "어디까지 왔나", rows: [
@@ -293,20 +292,19 @@ const ko: Copy = {
       ] },
       { group: "배포와 환원", rows: [
         ["deploy", "확인, 빌드, 무엇이 어디로 가는지 보여 주고, 승인하면 올립니다 — itch.io 또는 Google Play."],
-        ["feedback", "누구의 게임에나 통하는 교훈을 키트에 이슈로 보냅니다 — 승인한 줄만."],
-        ["voice", "당신이 어떻게 정하는지와 모아 온 규칙을 보여 주고, 고칠 수 있게 합니다."],
+        ["feedback", "모든 게임에서 모은 내 규칙 — 보여 주고, 정한 대로 키트에 이슈로 보냅니다."],
       ] },
     ],
   },
   voice: {
-    eyebrow: "보이스와 규칙",
+    eyebrow: "내 규칙",
     title: "한 번 배운 것은 다시 배우지 않습니다.",
     tiers: [
       ["이 게임에서만", "→ 그 게임의 CLAUDE.md에, 즉시"],
-      ["다음 게임에서도", "→ 비공개 저장소의 내 규칙에 — 앞으로 만드는 모든 게임에"],
-      ["누구의 게임에서나", "→ 승인한 이슈로 키트에 보내져, 모두의 규칙이 됩니다"],
+      ["다음 게임에서도", "→ 내 컴퓨터의 내 규칙에 — 다음 세션부터 모든 게임에"],
+      ["누구의 게임에서나", "→ 이슈로 키트에 보내져, 여러 게임이 같으면 모두의 규칙이 됩니다"],
     ],
-    setup: "한 번만 설정하세요: 빈 비공개 저장소를 만들고 `/gamedev-kit:voice setup <저장소 주소>`. 없어도 그 컴퓨터 안에서는 전부 동작합니다.",
+    setup: "규칙을 공개 이슈로 키트에 보내도 될지 처음 한 번만 묻습니다. 게임 이름이나 날짜가 들어간 것은 고쳐 쓸 때까지 보내지 않고, 모두에게 통하는지는 키트가 가려냅니다.",
   },
   assets: {
     eyebrow: "에셋 — 선택",
