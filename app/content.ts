@@ -69,8 +69,9 @@ const en = {
   start: {
     eyebrow: "Get started",
     title: "Two lines to install. Then just say what you want.",
-    s1: "Install the plugin in your game's folder",
-    s1note: "An empty folder is fine.",
+    s1: "Open Claude Code in your game's folder and ask for the kit",
+    s1note: "An empty folder is fine. Reopen Claude Code once it is installed. In a terminal instead: `claude plugin marketplace add dudwns0921/claude-gamedev-kit` then `claude plugin install gamedev-kit@claude-gamedev-kit --scope project`.",
+    ask: "install the gamedev-kit plugin from github.com/dudwns0921/claude-gamedev-kit",
     s2: "Then talk to Claude Code, in that folder",
     first: `let's make a game — a Godot one        → sets up the project, then writes the GDD with you
 this time, let's add a shop            → one cycle; your decisions wait on the dashboard
@@ -229,8 +230,9 @@ const ko: Copy = {
   start: {
     eyebrow: "시작하기",
     title: "설치는 두 줄. 그다음은 하고 싶은 걸 말하세요.",
-    s1: "게임 폴더에서 플러그인 설치",
-    s1note: "빈 폴더여도 됩니다.",
+    s1: "게임 폴더에서 Claude Code를 열고 키트를 설치해 달라고 하세요",
+    s1note: "빈 폴더여도 됩니다. 설치되면 Claude Code를 다시 여세요. 터미널에서 직접 하려면: `claude plugin marketplace add dudwns0921/claude-gamedev-kit` 다음 `claude plugin install gamedev-kit@claude-gamedev-kit --scope project`.",
+    ask: "github.com/dudwns0921/claude-gamedev-kit 에서 gamedev-kit 플러그인 설치해 줘",
     s2: "그 폴더의 Claude Code에 말하세요",
     first: `게임 하나 만들자, Godot로       → 프로젝트를 세팅하고, 기획서를 함께 씁니다
 이번엔 상점을 넣자               → 한 사이클을 돌고, 정할 것은 대시보드에서 기다립니다

@@ -69,8 +69,8 @@ export default function Landing({ lang }: { lang: Lang }) {
               <span className="n">1</span>
               <div>
                 <h3>{t.start.s1}</h3>
-                <p className="dim">{t.start.s1note}</p>
-                <CopyBlock text={INSTALL} label={t.start.terminal} words={c} />
+                <CopyBlock text={t.start.ask} label={t.start.claude} words={c} />
+                <p className="dim small"><Inline text={t.start.s1note} /></p>
               </div>
             </div>
             <div className="step">
