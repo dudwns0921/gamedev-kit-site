@@ -98,7 +98,7 @@ const en = {
         text: "`deploy` builds, shows the platform, target, version and size, and uploads only on your approval — itch.io for Godot and web builds, an App Bundle for Google Play with Unity." },
     ],
     autoTitle: "Away from the keyboard?",
-    auto: "Every question comes to you as a decision, with the pictures to look at. Answer on the dashboard — from your phone too: the game's open Claude session is woken for your answers, or the next one you open picks them up. The dashboard only signals; the session does the work. At a break, `/clear` then `cycle next` starts it over light in the same window.",
+    auto: "Every question comes to you as a decision, with the pictures to look at. Answer on the dashboard — from your phone too: the game's open Claude session is woken for your answers, or the next one you open picks them up. The dashboard only signals; the session does the work. When the conversation has grown long, the dashboard says so at a break: type `/clear` then `cycle next`, and it starts over light in the same window.",
   },
   board: {
     eyebrow: "The board and the dashboard",
@@ -257,7 +257,7 @@ const ko: Copy = {
         text: "`deploy`가 빌드하고, 플랫폼·대상·버전·크기를 보여 주고, 승인할 때만 올립니다 — Godot와 웹은 itch.io로, Unity는 Google Play용 App Bundle로." },
     ],
     autoTitle: "자리를 비우신다면?",
-    auto: "모든 질문은 볼 그림과 함께 결정으로 당신에게 옵니다. 대시보드에서 답하세요 — 폰에서도. 열린 Claude 세션이 깨어나 답을 받고, 열린 세션이 없으면 다음에 여는 세션이 받습니다. 대시보드는 신호만 보내고, 일은 세션이 합니다. 쉼표에서는 `/clear` 후 `cycle next`로 같은 창에서 가볍게 다시 시작합니다.",
+    auto: "모든 질문은 볼 그림과 함께 결정으로 당신에게 옵니다. 대시보드에서 답하세요 — 폰에서도. 열린 Claude 세션이 깨어나 답을 받고, 열린 세션이 없으면 다음에 여는 세션이 받습니다. 대시보드는 신호만 보내고, 일은 세션이 합니다. 대화가 길어지면 쉼표에서 대시보드가 알려 줍니다 — `/clear` 후 `cycle next`를 입력하면 같은 창에서 가볍게 다시 시작합니다.",
   },
   board: {
     eyebrow: "현황판과 대시보드",
