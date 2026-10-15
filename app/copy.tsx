@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 // A command block with a copy button — the install lines are meant to be pasted.
-export default function Copy({ text, label }: { text: string; label?: string }) {
+export default function CopyBlock({ text, label, words }: { text: string; label?: string; words: { copy: string; copied: string } }) {
   const [done, setDone] = useState(false);
   return (
     <div className="code">
@@ -18,9 +18,8 @@ export default function Copy({ text, label }: { text: string; label?: string }) 
             setTimeout(() => setDone(false), 1600);
           } catch { /* the text stays selectable */ }
         }}
-        aria-label="Copy"
       >
-        {done ? "Copied" : "Copy"}
+        {done ? words.copied : words.copy}
       </button>
     </div>
   );

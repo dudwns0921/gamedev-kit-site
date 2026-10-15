@@ -136,7 +136,7 @@ code { font: 600 .88em var(--mono); color: var(--lime); }
 @media (max-width: 960px) {
   .pillars, .flowgrid, .flowgrid.three, .tiers, .split { grid-template-columns: minmax(0, 1fr); }
   .nav nav { display: none; }
-  .nav .btn { margin-left: auto; }
+  .nav-right { margin-left: auto; }
 }
 @media (max-width: 560px) {
   .hero { padding-top: 56px; }
@@ -146,3 +146,12 @@ code { font: 600 .88em var(--mono); color: var(--lime); }
   .chat { padding: 16px; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+/* language switch */
+.nav-right { display: flex; gap: 10px; align-items: center; }
+.lang { display: inline-flex; border: 1px solid var(--line2); border-radius: 10px; overflow: hidden; }
+.lang a { padding: 6px 10px; font-size: 13px; font-weight: 700; color: var(--tx2); }
+.lang a:hover { color: var(--tx); text-decoration: none; }
+.lang a[aria-current="true"] { background: rgba(61,255,176,.14); color: var(--mint); }
+:lang(ko) h1, :lang(ko) h2 { word-break: keep-all; letter-spacing: -.03em; }
+:lang(ko) p, :lang(ko) li, :lang(ko) dd { word-break: keep-all; }
