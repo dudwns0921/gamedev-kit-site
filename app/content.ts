@@ -72,13 +72,14 @@ const en = {
     s1note: "An empty folder is fine.",
     s2: "Then, inside Claude Code",
     first: `/gamedev-kit:init      pick an engine; the kit finds the editor, creates the project and installs its files
+                       — and offers the dashboard of all your games
 /gamedev-kit:start     write the GDD together, agree on the look, set the first goal
 /gamedev-kit:cycle     build that goal — and every goal after it`,
     s3: "What you need",
     needs: [
       "Claude Code and Python 3.9 or later.",
       "For Godot or Unity, that engine's editor — `init` finds it and tells you what is missing. Web games need no editor.",
-      "Optional: Node.js for the dashboard; API keys only if you let the kit make assets.",
+      "Optional: Node.js for the dashboard — `init` offers it at the end; API keys only if you let the kit make assets.",
     ],
     terminal: "terminal",
     claude: "claude code",
@@ -229,13 +230,14 @@ const ko: Copy = {
     s1note: "빈 폴더여도 됩니다.",
     s2: "그다음 Claude Code 안에서",
     first: `/gamedev-kit:init      엔진을 고르면 에디터를 찾고, 프로젝트를 만들고, 키트 파일을 설치
+                       — 모든 게임을 보는 대시보드도 권합니다
 /gamedev-kit:start     기획서를 함께 쓰고, 모습을 정하고, 첫 목표를 세움
 /gamedev-kit:cycle     그 목표를 만들고 — 이후 모든 목표도`,
     s3: "필요한 것",
     needs: [
       "Claude Code, Python 3.9 이상.",
       "Godot나 Unity라면 그 엔진의 에디터 — `init`이 찾아 주고 빠진 게 있으면 알려 줍니다. 웹 게임은 에디터가 필요 없습니다.",
-      "선택: 대시보드를 쓰려면 Node.js, 키트가 에셋을 만들게 하려면 API 키.",
+      "선택: 대시보드를 쓰려면 Node.js — `init` 마지막에 권합니다. 키트가 에셋을 만들게 하려면 API 키.",
     ],
     terminal: "터미널",
     claude: "claude code",
