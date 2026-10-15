@@ -68,19 +68,19 @@ const en = {
   },
   start: {
     eyebrow: "Get started",
-    title: "Two lines to install, three commands to your first build.",
+    title: "Two lines to install. Then just say what you want.",
     s1: "Install the plugin in your game's folder",
     s1note: "An empty folder is fine.",
-    s2: "Then, inside Claude Code",
-    first: `/gamedev-kit:init      pick an engine; the kit finds the editor, creates the project and installs its files
-                       — and offers the dashboard of all your games
-/gamedev-kit:start     write the GDD together, agree on the look, set the first goal
-/gamedev-kit:cycle     build that goal — and every goal after it`,
+    s2: "Then talk to Claude Code, in that folder",
+    first: `let's make a game — a Godot one        → sets up the project, then writes the GDD with you
+this time, let's add a shop            → one cycle; your decisions wait on the dashboard
+I played it — the prices are unreadable → finds the causes and fixes them`,
     s3: "What you need",
     needs: [
       "Claude Code and Python 3.9 or later.",
       "For Godot or Unity, that engine's editor — `init` finds it and tells you what is missing. Web games need no editor.",
       "Optional: Node.js for the dashboard — `init` offers it at the end; API keys only if you let the kit make assets.",
+      "Every step also has a slash command (`/gamedev-kit:cycle` …), if you would rather type one.",
     ],
     terminal: "terminal",
     claude: "claude code",
@@ -228,19 +228,19 @@ const ko: Copy = {
   },
   start: {
     eyebrow: "시작하기",
-    title: "설치는 두 줄, 첫 빌드까지 명령 세 개.",
+    title: "설치는 두 줄. 그다음은 하고 싶은 걸 말하세요.",
     s1: "게임 폴더에서 플러그인 설치",
     s1note: "빈 폴더여도 됩니다.",
-    s2: "그다음 Claude Code 안에서",
-    first: `/gamedev-kit:init      엔진을 고르면 에디터를 찾고, 프로젝트를 만들고, 키트 파일을 설치
-                       — 모든 게임을 보는 대시보드도 권합니다
-/gamedev-kit:start     기획서를 함께 쓰고, 모습을 정하고, 첫 목표를 세움
-/gamedev-kit:cycle     그 목표를 만들고 — 이후 모든 목표도`,
+    s2: "그 폴더의 Claude Code에 말하세요",
+    first: `게임 하나 만들자, Godot로       → 프로젝트를 세팅하고, 기획서를 함께 씁니다
+이번엔 상점을 넣자               → 한 사이클을 돌고, 정할 것은 대시보드에서 기다립니다
+플레이해 봤는데 가격이 안 읽혀   → 원인을 찾아 고칩니다`,
     s3: "필요한 것",
     needs: [
       "Claude Code, Python 3.9 이상.",
       "Godot나 Unity라면 그 엔진의 에디터 — `init`이 찾아 주고 빠진 게 있으면 알려 줍니다. 웹 게임은 에디터가 필요 없습니다.",
       "선택: 대시보드를 쓰려면 Node.js — `init` 마지막에 권합니다. 키트가 에셋을 만들게 하려면 API 키.",
+      "단계마다 슬래시 명령(`/gamedev-kit:cycle` …)도 있습니다. 직접 치고 싶다면요.",
     ],
     terminal: "터미널",
     claude: "claude code",
