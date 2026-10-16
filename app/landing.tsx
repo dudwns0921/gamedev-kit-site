@@ -13,7 +13,7 @@ export default function Landing({ lang }: { lang: Lang }) {
   const [r1, r2, r3] = t.reasons;
   const head = (i: number, r: (typeof t.reasons)[number]) => (
     <header className="reason-head">
-      <span className="reason-n">{t.reasonLabel} {String(i + 1).padStart(2, "0")}</span>
+      <span className="reason-n">{String(i + 1).padStart(2, "0")} · {r.problem}</span>
       <h2>{r.title}</h2>
       <p className="lead">{r.text}</p>
     </header>
@@ -35,23 +35,11 @@ export default function Landing({ lang }: { lang: Lang }) {
       </header>
 
       <main id="top">
-        <section className="hero" id="why">
+        <section className="hero">
           <div className="in">
             <span className="eyebrow">{t.hero.eyebrow}</span>
             <h1>{t.hero.title}<br /><span className="grad">{t.hero.accent}</span></h1>
             <p className="lead">{t.hero.lead}</p>
-            <ol className="index" aria-label={t.hero.indexLabel}>
-              {t.reasons.map((r, i) => (
-                <li key={r.id}>
-                  <a href={`#${r.id}`}>
-                    <span className="index-n">{String(i + 1).padStart(2, "0")}</span>
-                    <s>{r.problem}</s>
-                    <b>{r.title}</b>
-                    <span className="index-go" aria-hidden>↓</span>
-                  </a>
-                </li>
-              ))}
-            </ol>
             <div className="ctas">
               <a className="btn primary" href="#start">{t.hero.start}</a>
               <a className="btn" href={REPO}>{t.hero.github}</a>
@@ -59,9 +47,27 @@ export default function Landing({ lang }: { lang: Lang }) {
           </div>
         </section>
 
-        <section id={r1.id} className="in reason">
-          {head(0, r1)}
-          <Scenes scenes={t.scenes.list} label={t.scenes.label} prev={t.scenes.prev} next={t.scenes.next} />
+        <section id="why" className="in why">
+          <span className="eyebrow">{t.why.eyebrow}</span>
+          <h2>{t.why.title}</h2>
+          <ol className="index">
+            {t.reasons.map((r, i) => (
+              <li key={r.id}>
+                <a href={`#${r.id}`}>
+                  <span className="index-n">{String(i + 1).padStart(2, "0")}</span>
+                  <s>{r.problem}</s>
+                  <b>{r.title}</b>
+                  <span className="index-go" aria-hidden>↓</span>
+                </a>
+              </li>
+            ))}
+          </ol>
+        </section>
+
+        <section id={r1.id} className="reason">
+          <div className="in">{head(0, r1)}</div>
+          <Scenes scenes={t.scenes.list} label={t.scenes.label} />
+          <p className="in scene-hint">{t.scenes.hint} →</p>
         </section>
 
         <section id={r2.id} className="in reason split">

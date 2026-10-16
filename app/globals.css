@@ -53,10 +53,11 @@ code { font: 600 .88em var(--mono); color: var(--lime); }
 .ctas { display: flex; gap: 12px; flex-wrap: wrap; }
 
 /* hero — the problem first, then the three answers it points to */
-.hero { padding: 104px 0 24px; background: radial-gradient(900px 520px at 12% -10%, rgba(61,255,176,.16), transparent 60%), radial-gradient(700px 400px at 100% 0%, rgba(26,16,51,.9), transparent 70%); }
+.hero { padding: 104px 0 8px; background: radial-gradient(900px 520px at 12% -10%, rgba(61,255,176,.16), transparent 60%), radial-gradient(700px 400px at 100% 0%, rgba(26,16,51,.9), transparent 70%); }
 .hero .in { display: flex; flex-direction: column; gap: 24px; }
 .hero h1 { font-size: clamp(34px, 5.6vw, 66px); font-weight: 900; max-width: none; }
-.index { list-style: none; margin: 16px 0 8px; padding: 0; display: grid; gap: 14px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.why { padding-top: 88px; display: flex; flex-direction: column; gap: 16px; }
+.index { list-style: none; margin: 16px 0 0; padding: 0; display: grid; gap: 14px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .index a { position: relative; height: 100%; display: flex; flex-direction: column; gap: 10px; padding: 22px 22px 48px; border-radius: 18px; border: 1px solid var(--line2); background: linear-gradient(180deg, var(--card), var(--bg2)); color: var(--tx); transition: border-color .2s, transform .2s; }
 .index a:hover { border-color: var(--mint); transform: translateY(-2px); text-decoration: none; }
 .index-n { font: 700 12px var(--mono); letter-spacing: .1em; color: var(--mint); }
@@ -66,32 +67,35 @@ code { font: 600 .88em var(--mono); color: var(--lime); }
 .index a:hover .index-go { color: var(--mint); }
 
 /* each reason */
-.reason { padding-top: 136px; display: flex; flex-direction: column; gap: 40px; }
+.reason { padding-top: 128px; display: flex; flex-direction: column; gap: 40px; }
+.reason > .in { width: 100%; }
 .reason-head { display: flex; flex-direction: column; gap: 16px; }
-.reason-n { font: 700 12px/1.4 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--mint); display: inline-flex; align-items: center; gap: 12px; }
+.reason-n { font: 700 13px/1.4 var(--mono); letter-spacing: .04em; color: var(--mint); display: inline-flex; align-items: center; gap: 12px; }
 .reason-n::after { content: ""; width: 48px; height: 1px; background: linear-gradient(90deg, var(--mint), transparent); }
 .split { display: grid; gap: 56px; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); align-items: center; }
 .split h2 { font-size: clamp(28px, 3.4vw, 38px); }
 .split .lead { font-size: 17px; }
 .flip .reason-head { order: 2; }
 
-/* the dashboard, scene by scene */
-.scene-track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; overscroll-behavior-x: contain; border-radius: 18px; }
+/* the dashboard, scene by scene — a strip that runs past the page edges; the next screen always peeks in */
+.scenes { --gut: max(20px, calc((100vw - 1080px) / 2)); }
+.scene-track { position: relative; display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; overscroll-behavior-x: contain;
+  padding: 4px var(--gut) 8px; scroll-padding-inline: var(--gut); cursor: grab; }
 .scene-track::-webkit-scrollbar { display: none; }
-.scene-track:focus-visible { outline: 2px solid var(--mint); outline-offset: 4px; }
-.scene { flex: 0 0 100%; margin: 0; padding: 0 2px; scroll-snap-align: center; }
-.shot { border-radius: 16px; border: 1px solid var(--line2); }
-.scene .shot { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; user-select: none; }
-.scene-bar { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 16px; align-items: center; margin-top: 20px; }
-.scene-cap { text-align: center; min-height: 3.4em; }
-.scene-cap b { display: block; font-size: 17px; }
-.scene-n { font: 700 12px var(--mono); color: var(--mint); margin-right: 8px; letter-spacing: .08em; }
-.scene-cap p { margin: 4px auto 0; color: var(--tx2); font-size: 15px; max-width: 60ch; }
-.scene-arrow { width: 44px; height: 44px; border-radius: 12px; border: 1px solid var(--line2); background: var(--card); color: var(--tx); font-size: 16px; cursor: pointer; }
-.scene-arrow:hover { border-color: var(--mint); color: var(--mint); }
-.scene-dots { display: flex; justify-content: center; gap: 8px; margin-top: 12px; }
-.scene-dots button { width: 8px; height: 8px; padding: 0; border: 0; border-radius: 99px; background: var(--line2); cursor: pointer; transition: width .2s, background .2s; }
-.scene-dots button.on { width: 24px; background: var(--mint); }
+.scene-track:focus-visible { outline: 2px solid var(--mint); outline-offset: -2px; }
+.scene-track.dragging { cursor: grabbing; scroll-snap-type: none; user-select: none; }
+.scene { flex: 0 0 min(76vw, 860px); margin: 0; scroll-snap-align: start; display: flex; flex-direction: column; gap: 16px; padding: 20px 20px 20px; border-radius: 22px; border: 1px solid var(--line2); background: linear-gradient(180deg, var(--card), var(--bg2)); opacity: .5; transition: opacity .3s, border-color .3s; }
+.scene.on { opacity: 1; border-color: rgba(61,255,176,.45); }
+.scene figcaption { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 12px; row-gap: 2px; align-items: baseline; padding: 0 4px; }
+.scene figcaption b { font-size: 19px; }
+.scene-text { grid-column: 2; color: var(--tx2); font-size: 15px; }
+.scene-n { font: 700 13px var(--mono); color: var(--mint); letter-spacing: .08em; }
+.shot { border-radius: 14px; border: 1px solid var(--line2); }
+.scene .shot { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; user-select: none; pointer-events: none; }
+.scene-dots { display: flex; justify-content: center; gap: 8px; margin-top: 18px; }
+.scene-dots span { width: 8px; height: 8px; border-radius: 99px; background: var(--line2); transition: width .2s, background .2s; }
+.scene-dots span.on { width: 24px; background: var(--mint); }
+.scene-hint { color: var(--tx3); font-size: 13px; text-align: center; margin-top: -24px; }
 
 /* visuals drawn in HTML */
 .vis { margin: 0; padding: 24px; border-radius: 20px; border: 1px solid var(--line2); background: radial-gradient(500px 260px at 0% 0%, rgba(61,255,176,.10), transparent 70%), linear-gradient(180deg, var(--card), var(--bg2)); display: flex; flex-direction: column; gap: 18px; }
@@ -159,7 +163,7 @@ code { font: 600 .88em var(--mono); color: var(--lime); }
 .does { color: var(--tx2); font-size: 15px; }
 
 /* end */
-.final { margin-top: 160px; padding: 120px 0; text-align: center; border-top: 1px solid var(--line); background: radial-gradient(700px 360px at 50% 0%, rgba(61,255,176,.14), transparent 70%); }
+.final { margin-top: 128px; padding: 112px 0; text-align: center; border-top: 1px solid var(--line); background: radial-gradient(700px 360px at 50% 0%, rgba(61,255,176,.14), transparent 70%); }
 .final .in { display: flex; flex-direction: column; align-items: center; gap: 22px; }
 .final h2 { max-width: none; font-size: clamp(36px, 6vw, 64px); font-weight: 900; }
 .final .lead { text-align: center; }
@@ -176,7 +180,7 @@ code { font: 600 .88em var(--mono); color: var(--lime); }
 }
 @media (max-width: 560px) {
   .hero { padding-top: 64px; }
-  .reason { padding-top: 96px; gap: 28px; }
+  .reason { padding-top: 88px; gap: 28px; }
   .index a { padding-bottom: 22px; }
   .index-go { display: none; }
   .vis { padding: 16px; }
@@ -189,8 +193,11 @@ code { font: 600 .88em var(--mono); color: var(--lime); }
   .qs-step .n { position: static; }
   .needs { grid-template-columns: minmax(0, 1fr); }
   .say li { grid-template-columns: minmax(0, 1fr); gap: 6px; }
-  .scene-bar { grid-template-columns: minmax(0, 1fr); }
-  .scene-arrow { display: none; }
+  .scene { flex-basis: 86vw; padding: 14px; gap: 12px; }
+  .scene-track { gap: 12px; }
+  .scene figcaption b { font-size: 17px; }
+  .scene-text { grid-column: 1 / -1; font-size: 14px; }
+  .why { padding-top: 64px; }
   .final { margin-top: 112px; padding: 88px 0; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .index a { transition: none; } }
