@@ -140,18 +140,11 @@ code { font: 600 .88em var(--mono); color: var(--lime); }
 .qs-step.wide { grid-column: 1 / -1; }
 .qs-step .n { position: absolute; left: 24px; top: 22px; width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; background: rgba(61,255,176,.14); color: var(--mint); font: 800 16px var(--mono); }
 .qs-step h3 { padding-top: 6px; }
-.needs { list-style: none; margin: 6px 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 32px; }
-.needs li { display: flex; gap: 14px; align-items: center; padding: 14px 0; border-top: 1px solid var(--line); }
-.needs li:nth-child(-n+2) { border-top: 0; }
-.needs i { flex: none; width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; font-style: normal; font-size: 13px; font-weight: 800; color: var(--mint); background: rgba(61,255,176,.12); }
-.needs div { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
-.needs a, .needs b { font-weight: 700; font-size: 16px; }
-.needs span { color: var(--tx2); font-size: 14px; }
-.engines { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 6px; padding-top: 16px; border-top: 1px dashed var(--line2); }
-.engines span { font: 600 11px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--tx3); margin-right: 6px; }
-.engines a, .engines em { font-style: normal; font-size: 13.5px; font-weight: 700; padding: 5px 12px; border-radius: 99px; border: 1px solid var(--line2); background: var(--card2); }
-.engines em { color: var(--tx2); }
-.engines a:hover { border-color: var(--mint); text-decoration: none; }
+.needs { margin: 2px 0 0; padding-left: 20px; }
+.needs li + li { margin-top: 6px; }
+.needs li::marker { color: var(--tx3); }
+.needs a, .needs b { font-weight: 700; }
+.needs span { color: var(--tx2); }
 .code { position: relative; margin-top: 4px; background: #050c0a; border: 1px solid var(--line2); border-radius: 12px; }
 .code pre { margin: 0; padding: 32px 16px 16px; overflow-x: auto; font: 13.5px/1.7 var(--mono); color: var(--tx); }
 .code pre code { color: inherit; font: inherit; }
@@ -192,8 +185,6 @@ code { font: 600 .88em var(--mono); color: var(--lime); }
   .game { font-size: 12px; }
   .qs-step { padding: 22px 18px; }
   .qs-step .n { position: static; }
-  .needs { grid-template-columns: minmax(0, 1fr); }
-  .needs li:nth-child(2) { border-top: 1px solid var(--line); }
   .say li { grid-template-columns: minmax(0, 1fr); gap: 6px; }
   .scenes .swiper-slide.scene { width: 80vw; }
   .scene figure { padding: 14px; gap: 12px; }

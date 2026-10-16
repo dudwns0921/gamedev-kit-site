@@ -1,4 +1,4 @@
-import { BOARD_REPO, COPY, INSTALL, REPO, LINKS, type Lang } from "./content";
+import { BOARD_REPO, COPY, INSTALL, REPO, type Lang } from "./content";
 import CopyBlock from "./copy";
 import LangSwitch from "./lang-switch";
 import Scenes from "./scenes";
@@ -87,20 +87,11 @@ export default function Landing({ lang }: { lang: Lang }) {
               <ul className="needs">
                 {t.start.needs.map((n) => (
                   <li key={n.name}>
-                    <i aria-hidden>✓</i>
-                    <div>
-                      {n.href ? <a href={n.href}>{n.name}</a> : <b>{n.name}</b>}
-                      <span>{n.note}</span>
-                    </div>
+                    {n.href ? <a href={n.href}>{n.name}</a> : <b>{n.name}</b>}
+                    <span> — {n.note}</span>
                   </li>
                 ))}
               </ul>
-              <div className="engines">
-                <span>{t.start.engines}</span>
-                <a href={LINKS.godot}>Godot</a>
-                <a href={LINKS.unity}>Unity</a>
-                <em>{t.start.web}</em>
-              </div>
             </div>
             <div className="qs-step">
               <span className="n">2</span>

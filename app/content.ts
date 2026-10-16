@@ -14,8 +14,6 @@ export const LINKS = {
   claude: "https://code.claude.com",
   python: "https://www.python.org/downloads/",
   node: "https://nodejs.org",
-  godot: "https://godotengine.org/download",
-  unity: "https://unity.com/download",
 };
 
 type Scene = { img: string; title: string; text: string; alt: string };
@@ -47,7 +45,7 @@ const en = {
       text: "Every number and rule in the design doc gets an ID, and the code carries the same ID. When the two disagree or something isn't built yet, the kit catches it — say which side is right and it fixes the other. Balance numbers live on one spreadsheet you can read and edit." },
     { id: "rules", problem: "You repeat last game's mistakes",
       title: "What one game teaches, the next one remembers",
-      text: "The problems you ran into, and how you solved them, are kept as short rules of your own and applied automatically from your next game on. Send it to the kit if you like — rules that hold for everyone become everyone's defaults." },
+      text: "The problems you ran into while making a game, and how you solved them, are kept as short rules of your own and applied automatically from your next game on. Send them to the kit if you like — problems many people ran into the same way become everyone's defaults." },
   ],
   scenes: {
     label: "What the dashboard shows",
@@ -101,10 +99,8 @@ const en = {
       { name: "Claude Code", href: LINKS.claude, note: "where the kit runs" },
       { name: "Python", href: LINKS.python, note: "3.9 or later" },
       { name: "Node.js", href: LINKS.node, note: "to run the dashboard" },
-      { name: "Engine editor", href: "", note: "only for Godot or Unity games" },
+      { name: "Engine editor", href: "", note: "for the engine you want to make your game with" },
     ],
-    engines: "Engines it's been used with",
-    web: "Web — no editor needed",
     s2: "Install in your game's folder",
     s2sub: "An empty folder works.",
     terminal: "terminal",
@@ -156,7 +152,7 @@ const ko: Copy = {
       text: "기획서의 숫자와 규칙마다 ID가 붙고, 코드에도 같은 ID가 남습니다. 둘이 달라지거나 아직 구현되지 않은 항목이 생기면 키트가 바로 찾아내고, 어느 쪽이 맞는지만 정하면 나머지를 맞춰 줍니다. 밸런스 수치는 엑셀 한 장으로 보고 고칠 수 있습니다." },
     { id: "rules", problem: "같은 실수를 또 한다",
       title: "한 번 겪은 건 다음 게임이 기억합니다",
-      text: "게임을 만들며 부딪힌 문제와 그 해결법이 짧은 규칙으로 정리되어, 다음 게임부터 자동으로 적용됩니다. 원하면 그 규칙을 키트로 보낼 수 있고, 누구에게나 통하는 규칙은 모든 사용자의 기본값이 됩니다." },
+      text: "게임을 만들며 겪은 문제와 그 해결법이 짧은 규칙으로 정리되어, 다음 게임부터 자동으로 적용됩니다. 원하면 그 규칙을 키트로 보낼 수 있고, 많은 사람들이 동일하게 겪은 문제는 모든 사용자의 기본값이 됩니다." },
   ],
   scenes: {
     label: "대시보드에서 보이는 것",
@@ -210,10 +206,8 @@ const ko: Copy = {
       { name: "Claude Code", href: LINKS.claude, note: "키트가 돌아가는 곳" },
       { name: "Python", href: LINKS.python, note: "3.9 이상" },
       { name: "Node.js", href: LINKS.node, note: "대시보드를 띄울 때" },
-      { name: "엔진 에디터", href: "", note: "Godot·Unity 게임일 때만" },
+      { name: "엔진 에디터", href: "", note: "만들고 싶은 게임의 에디터" },
     ],
-    engines: "만들어 본 엔진",
-    web: "웹 — 에디터 없이",
     s2: "게임 폴더에서 설치",
     s2sub: "빈 폴더여도 됩니다.",
     terminal: "터미널",
