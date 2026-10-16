@@ -1,6 +1,7 @@
 import { BOARD_REPO, COPY, INSTALL, REPO, SERVE, UPDATE, type Lang } from "./content";
 import CopyBlock from "./copy";
 import LangSwitch from "./lang-switch";
+import Scenes from "./scenes";
 
 function Inline({ text }: { text: string }) {
   return <>{text.split(/(`[^`]+`)/).map((p, i) => (p.startsWith("`") ? <code key={i}>{p.slice(1, -1)}</code> : p))}</>;
@@ -43,7 +44,7 @@ export default function Landing({ lang }: { lang: Lang }) {
         </section>
 
         <section className="in sec">
-          <img className="shot wide" src="/dashboard.png" alt={t.hero.shot} />
+          <Scenes scenes={t.hero.scenes} label={t.hero.scenesLabel} prev={t.hero.prev} next={t.hero.next} />
         </section>
 
         <section id="why" className="in sec">
