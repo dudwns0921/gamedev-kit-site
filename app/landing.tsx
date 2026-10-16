@@ -4,10 +4,6 @@ import LangSwitch from "./lang-switch";
 import Scenes from "./scenes";
 import { RulesVisual, SyncVisual } from "./visuals";
 
-function Inline({ text }: { text: string }) {
-  return <>{text.split(/(`[^`]+`)/).map((p, i) => (p.startsWith("`") ? <code key={i}>{p.slice(1, -1)}</code> : p))}</>;
-}
-
 export default function Landing({ lang }: { lang: Lang }) {
   const t = COPY[lang];
   const [r1, r2, r3] = t.reasons;
@@ -67,7 +63,6 @@ export default function Landing({ lang }: { lang: Lang }) {
         <section id={r1.id} className="reason">
           <div className="in">{head(0, r1)}</div>
           <Scenes scenes={t.scenes.list} label={t.scenes.label} />
-          <p className="in scene-hint">{t.scenes.hint} →</p>
         </section>
 
         <section id={r2.id} className="in reason split">
@@ -92,22 +87,26 @@ export default function Landing({ lang }: { lang: Lang }) {
               <ul className="needs">
                 {t.start.needs.map((n) => (
                   <li key={n.name}>
-                    {n.href ? <a href={n.href}>{n.name}</a> : <b>{n.name}</b>}
-                    {n.note ? <span>{n.note}</span> : null}
+                    <i aria-hidden>✓</i>
+                    <div>
+                      {n.href ? <a href={n.href}>{n.name}</a> : <b>{n.name}</b>}
+                      <span>{n.note}</span>
+                    </div>
                   </li>
                 ))}
               </ul>
-              <p className="engines">
+              <div className="engines">
                 <span>{t.start.engines}</span>
-                <a href={LINKS.godot}>Godot</a> · <a href={LINKS.unity}>Unity</a> · {t.start.web}
-              </p>
+                <a href={LINKS.godot}>Godot</a>
+                <a href={LINKS.unity}>Unity</a>
+                <em>{t.start.web}</em>
+              </div>
             </div>
             <div className="qs-step">
               <span className="n">2</span>
               <h3>{t.start.s2}</h3>
               <p className="dim small">{t.start.s2sub}</p>
               <CopyBlock text={INSTALL} label={t.start.terminal} words={t.copy} />
-              <p className="dim small">{t.start.s2note}</p>
             </div>
             <div className="qs-step wide">
               <span className="n">3</span>
@@ -121,7 +120,6 @@ export default function Landing({ lang }: { lang: Lang }) {
                   </li>
                 ))}
               </ul>
-              <p className="dim small"><Inline text={t.start.s3note} /></p>
             </div>
           </div>
         </section>
