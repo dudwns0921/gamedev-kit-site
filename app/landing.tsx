@@ -1,7 +1,8 @@
-import { BOARD_REPO, COPY, INSTALL, REPO, SERVE, UPDATE, type Lang } from "./content";
+import { BOARD_REPO, COPY, INSTALL, REPO, LINKS, type Lang } from "./content";
 import CopyBlock from "./copy";
 import LangSwitch from "./lang-switch";
 import Scenes from "./scenes";
+import { RulesVisual, SyncVisual } from "./visuals";
 
 function Inline({ text }: { text: string }) {
   return <>{text.split(/(`[^`]+`)/).map((p, i) => (p.startsWith("`") ? <code key={i}>{p.slice(1, -1)}</code> : p))}</>;
@@ -9,7 +10,14 @@ function Inline({ text }: { text: string }) {
 
 export default function Landing({ lang }: { lang: Lang }) {
   const t = COPY[lang];
-  const c = t.copy;
+  const [r1, r2, r3] = t.reasons;
+  const head = (i: number, r: (typeof t.reasons)[number]) => (
+    <header className="reason-head">
+      <span className="reason-n">{t.reasonLabel} {String(i + 1).padStart(2, "0")}</span>
+      <h2>{r.title}</h2>
+      <p className="lead">{r.text}</p>
+    </header>
+  );
   return (
     <>
       <header className="nav">
@@ -27,75 +35,99 @@ export default function Landing({ lang }: { lang: Lang }) {
       </header>
 
       <main id="top">
-        <section className="hero">
+        <section className="hero" id="why">
           <div className="in">
             <span className="eyebrow">{t.hero.eyebrow}</span>
-            <h1>{t.hero.title} <span className="grad">{t.hero.accent}</span></h1>
+            <h1>{t.hero.title}<br /><span className="grad">{t.hero.accent}</span></h1>
             <p className="lead">{t.hero.lead}</p>
+            <ol className="index" aria-label={t.hero.indexLabel}>
+              {t.reasons.map((r, i) => (
+                <li key={r.id}>
+                  <a href={`#${r.id}`}>
+                    <span className="index-n">{String(i + 1).padStart(2, "0")}</span>
+                    <s>{r.problem}</s>
+                    <b>{r.title}</b>
+                    <span className="index-go" aria-hidden>↓</span>
+                  </a>
+                </li>
+              ))}
+            </ol>
             <div className="ctas">
               <a className="btn primary" href="#start">{t.hero.start}</a>
               <a className="btn" href={REPO}>{t.hero.github}</a>
             </div>
-            <ol className="stages" aria-label={t.hero.stagesLabel}>
-              {t.hero.stages.map((s, i) => <li key={s}><b>{String(i + 1).padStart(2, "0")}</b>{s}</li>)}
-              <li className="loop">{t.hero.loop}</li>
-            </ol>
           </div>
         </section>
 
-        <section className="in sec">
-          <Scenes scenes={t.hero.scenes} label={t.hero.scenesLabel} prev={t.hero.prev} next={t.hero.next} />
+        <section id={r1.id} className="in reason">
+          {head(0, r1)}
+          <Scenes scenes={t.scenes.list} label={t.scenes.label} prev={t.scenes.prev} next={t.scenes.next} />
         </section>
 
-        <section id="why" className="in sec">
-          <span className="eyebrow">{t.why.eyebrow}</span>
-          <h2>{t.why.title}</h2>
-          <p className="lead narrow">{t.why.lead}</p>
-          <div className="pillars">
-            {t.why.pillars.map((p) => (
-              <article key={p.img} className="pillar">
-                <img src={p.img} alt={p.alt} />
-                <h3>{p.title}</h3>
-                <p><Inline text={p.text} /></p>
-              </article>
-            ))}
-          </div>
+        <section id={r2.id} className="in reason split">
+          {head(1, r2)}
+          <SyncVisual t={t.sync} />
         </section>
 
-        <section id="start" className="in sec">
-          <span className="eyebrow">{t.start.eyebrow}</span>
-          <h2>{t.start.title}</h2>
-          <div className="steps">
-            <div className="step">
+        <section id={r3.id} className="in reason split flip">
+          {head(2, r3)}
+          <RulesVisual t={t.rules} />
+        </section>
+
+        <section id="start" className="in reason">
+          <header className="reason-head">
+            <span className="eyebrow">{t.start.eyebrow}</span>
+            <h2>{t.start.title}</h2>
+          </header>
+          <div className="qs">
+            <div className="qs-step">
               <span className="n">1</span>
-              <div>
-                <h3>{t.start.s1}</h3>
-                <CopyBlock text={t.start.ask} label={t.start.claude} words={c} />
-                <p className="dim small"><Inline text={t.start.s1note} /></p>
-              </div>
+              <h3>{t.start.s1}</h3>
+              <ul className="needs">
+                {t.start.needs.map((n) => (
+                  <li key={n.name}>
+                    {n.href ? <a href={n.href}>{n.name}</a> : <b>{n.name}</b>}
+                    {n.note ? <span>{n.note}</span> : null}
+                  </li>
+                ))}
+              </ul>
+              <p className="engines">
+                <span>{t.start.engines}</span>
+                <a href={LINKS.godot}>Godot</a> · <a href={LINKS.unity}>Unity</a> · {t.start.web}
+              </p>
             </div>
-            <div className="step">
+            <div className="qs-step">
               <span className="n">2</span>
-              <div>
-                <h3>{t.start.s2}</h3>
-                <CopyBlock text={t.start.first} label={t.start.claude} words={c} />
-              </div>
+              <h3>{t.start.s2}</h3>
+              <p className="dim small">{t.start.s2sub}</p>
+              <CopyBlock text={INSTALL} label={t.start.terminal} words={t.copy} />
+              <p className="dim small">{t.start.s2note}</p>
             </div>
-            <div className="step">
+            <div className="qs-step wide">
               <span className="n">3</span>
-              <div>
-                <h3>{t.start.s3}</h3>
-                <ul className="plain">{t.start.needs.map((n) => <li key={n}><Inline text={n} /></li>)}</ul>
-              </div>
+              <h3>{t.start.s3}</h3>
+              <p className="dim small">{t.start.s3sub}</p>
+              <ul className="say">
+                {t.start.say.map(([say, does]) => (
+                  <li key={say}>
+                    <span className="bubble"><em>{t.start.you}</em>“{say}”</span>
+                    <span className="does">→ {does}</span>
+                  </li>
+                ))}
+              </ul>
+              <p className="dim small"><Inline text={t.start.s3note} /></p>
             </div>
           </div>
         </section>
 
-        <section className="in final">
-          <h2>{t.final.title}</h2>
-          <div className="ctas">
-            <a className="btn primary" href="#start">{t.final.install}</a>
-            <a className="btn" href={REPO}>{t.final.readme}</a>
+        <section className="final">
+          <div className="in">
+            <h2>{t.final.title}</h2>
+            <p className="lead">{t.final.lead}</p>
+            <div className="ctas">
+              <a className="btn primary" href="#start">{t.final.install}</a>
+              <a className="btn" href={REPO}>{t.final.readme}</a>
+            </div>
           </div>
         </section>
       </main>
