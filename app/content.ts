@@ -25,7 +25,7 @@ const en = {
   },
   nav: { why: "Why", start: "Quick start" },
   hero: {
-    eyebrow: "A Claude Code plugin for making games · Godot · Unity · Web",
+    eyebrow: "A Claude Code plugin for making games",
     title: "Starting a game with AI is easy.",
     accent: "Finishing it is the hard part.",
     lead: "A few weeks in, you lose sight of where things stand, the design doc and the code stop matching, and you repeat the mistakes from your last game. gamedev-kit lets you build while seeing all of it.",
@@ -132,7 +132,7 @@ const ko: Copy = {
   },
   nav: { why: "쓰는 이유", start: "빠른 시작" },
   hero: {
-    eyebrow: "게임을 만드는 Claude Code 플러그인 · Godot · Unity · Web",
+    eyebrow: "게임을 만드는 Claude Code 플러그인",
     title: "AI로 게임 만들기, 시작은 쉽습니다.",
     accent: "끝까지 가는 게 어렵죠.",
     lead: "몇 주째 만들다 보면 어디까지 했는지 흐려지고, 기획서와 코드는 따로 놀고, 지난 게임에서 겪은 실수를 또 반복합니다. gamedev-kit은 이 모든 걸 눈으로 확인하면서 만들게 해 줍니다.",
