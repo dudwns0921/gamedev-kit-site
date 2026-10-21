@@ -21,7 +21,7 @@ type Scene = { img: string; title: string; text: string; alt: string };
 const en = {
   meta: {
     title: "claude-gamedev-kit — see your game all the way to done",
-    description: "A Claude Code plugin for making games. Agents build it cycle by cycle, several at once in the background; a dashboard shows where every game stands and what's waiting on you. For Godot, Unity and web games.",
+    description: "A Claude Code plugin for making games. Agents build it cycle by cycle and a CEO coordinates them, several at once; a dashboard shows where every game stands and what's waiting on you. For Godot, Unity and web games.",
   },
   nav: { why: "Why", start: "Quick start" },
   hero: {
@@ -37,9 +37,9 @@ const en = {
     title: "Four things that get a game finished",
   },
   reasons: [
-    { id: "ceo", problem: "You end up running every step yourself",
-      title: "Several cycles at once — you only decide and play",
-      text: "One window is the CEO: it proposes the next goals and starts a worker for each cycle that can move. A worker carries its cycle on in the background and stops only where you're needed — a decision, or a build ready to play. The CEO decides nothing; every question stays yours. Each cycle builds in a folder of its own, so several build at once." },
+    { id: "ceo", problem: "You end up driving every step yourself",
+      title: "You decide — the CEO coordinates the rest",
+      text: "Proposing the next goal, running several cycles at once, keeping the builds in order — all the work is coordinated by the CEO. Whatever needs a call reaches your dashboard as a question, and answering it is all you do." },
     { id: "dashboard", problem: "You lose sight of where it stands",
       title: "See it all, decide on the spot",
       text: "Every game's progress lands on one dashboard. Each part of the game is an epic with its tasks laid out by cycle, and every question from the agents arrives as a card with pictures to compare. Pick an answer and Claude carries on." },
@@ -80,15 +80,15 @@ const en = {
     ] as Scene[],
   },
   ceo: {
-    label: "The CEO starts a worker for each of three cycles; one stops on a decision for you, one is building in its own folder, one is ready to play",
-    ceo: "CEO", ceoSub: "decides nothing",
-    you: "You", youSub: "decide · play",
+    label: "The CEO coordinates three cycles, each run by a worker; only the decision one of them reaches comes to you",
+    ceo: "CEO", ceoSub: "coordinates",
+    you: "You", youSub: "decide",
     workers: "Workers — Claude Code running in the background",
     stages: ["Goal", "Spec", "Design", "Plan", "Build", "Play"],
     lanes: [
       { cycle: "C1", at: 1, stop: "decision for you", kind: "you" },
       { cycle: "C2", at: 4, stop: "building, own folder", kind: "build" },
-      { cycle: "C3", at: 5, stop: "ready to play", kind: "play" },
+      { cycle: "C3", at: 5, stop: "build done", kind: "play" },
     ],
     foot: "Only the merge into the game takes turns.",
   },
@@ -132,7 +132,7 @@ const en = {
     say: [
       ["I want to make a cozy farming game", "Asks where it'll be played, picks the engine, sets up the project, writes the design doc with you, then hands the first goal to the CEO"],
       ["Let's add a shop this time", "Runs one cycle from spec to build and sends your decisions to the dashboard"],
-      ["Run it for me", "The CEO runs the cycles in the background, several at once, and stops where you're needed"],
+      ["Run it for me", "The CEO coordinates the cycles, several at once; only what's yours to decide reaches you"],
       ["I played it — the prices are hard to read", "Finds the cause and fixes it"],
     ] as [string, string][],
   },
@@ -151,7 +151,7 @@ export type Copy = typeof en;
 const ko: Copy = {
   meta: {
     title: "claude-gamedev-kit — 눈으로 보며 게임을 끝까지",
-    description: "게임을 만드는 Claude Code 플러그인. 에이전트가 사이클 단위로, 여러 사이클을 동시에 뒤에서 만들고, 대시보드가 모든 게임의 진행 상황과 내가 정할 것을 보여 줍니다. Godot · Unity · 웹 게임.",
+    description: "게임을 만드는 Claude Code 플러그인. 에이전트가 사이클 단위로 만들고 CEO가 여러 사이클을 동시에 조율하며, 대시보드가 모든 게임의 진행 상황과 내가 정할 것을 보여 줍니다. Godot · Unity · 웹 게임.",
   },
   nav: { why: "쓰는 이유", start: "빠른 시작" },
   hero: {
@@ -168,8 +168,8 @@ const ko: Copy = {
   },
   reasons: [
     { id: "ceo", problem: "모든 단계를 직접 돌리게 된다",
-      title: "여러 사이클을 동시에 — 나는 정하고 플레이만",
-      text: "창 하나가 CEO가 되어 다음 목표를 제안하고, 진행할 수 있는 사이클마다 워커를 띄웁니다. 워커는 뒤에서 사이클을 이어 가다가 내가 필요한 곳 — 결정이나 플레이할 빌드 — 에서만 멈춥니다. CEO는 아무것도 정하지 않고, 모든 질문은 내 몫으로 남습니다. 사이클마다 자기 폴더에서 빌드하니 여러 빌드가 동시에 돌아갑니다." },
+      title: "나는 결정만, 모든 작업은 CEO가 조율합니다",
+      text: "다음 목표를 제안하는 일부터 여러 사이클을 동시에 진행하고 빌드 순서를 맞추는 일까지, 모든 작업은 CEO가 조율합니다. 판단이 필요한 것만 질문이 되어 대시보드로 오고, 나는 거기에 답하기만 하면 됩니다." },
     { id: "dashboard", problem: "어디까지 했는지 흐려진다",
       title: "한눈에 보고, 그 자리에서 결정합니다",
       text: "모든 게임의 진행 상황이 대시보드 한 화면에 모입니다. 게임의 각 부분이 에픽이 되어 태스크가 사이클별로 보이고, 에이전트의 질문은 비교할 그림과 함께 카드로 도착합니다. 고르기만 하면 Claude가 이어서 작업합니다." },
@@ -210,15 +210,15 @@ const ko: Copy = {
     ],
   },
   ceo: {
-    label: "CEO가 사이클 셋에 워커를 하나씩 띄움; 하나는 내 결정을 기다리고, 하나는 자기 폴더에서 빌드 중, 하나는 플레이 준비 완료",
-    ceo: "CEO", ceoSub: "정하지 않음",
-    you: "나", youSub: "결정 · 플레이",
+    label: "CEO가 워커가 맡은 사이클 셋을 조율함; 그중 결정이 필요한 것만 나에게 옴",
+    ceo: "CEO", ceoSub: "조율",
+    you: "나", youSub: "결정",
     workers: "워커 — 뒤에서 도는 Claude Code",
     stages: ["목표", "스펙", "디자인", "계획", "빌드", "플레이"],
     lanes: [
       { cycle: "C1", at: 1, stop: "내 결정 대기", kind: "you" },
       { cycle: "C2", at: 4, stop: "자기 폴더에서 빌드", kind: "build" },
-      { cycle: "C3", at: 5, stop: "플레이 준비", kind: "play" },
+      { cycle: "C3", at: 5, stop: "빌드 완료", kind: "play" },
     ],
     foot: "게임에 합칠 때만 차례를 기다립니다.",
   },
@@ -262,7 +262,7 @@ const ko: Copy = {
     say: [
       ["아늑한 농장 게임 만들고 싶어", "어디서 플레이할지 묻고, 엔진을 정하고, 프로젝트를 세팅하고, 기획서를 같이 쓴 뒤 첫 목표를 CEO에게 넘깁니다"],
       ["이번엔 상점 넣어 보자", "기획부터 구현까지 한 사이클을 돌고, 정할 것은 대시보드로 보냅니다"],
-      ["알아서 돌려줘", "CEO가 여러 사이클을 동시에 뒤에서 돌리고, 내가 필요한 곳에서 멈춥니다"],
+      ["알아서 돌려줘", "CEO가 여러 사이클을 동시에 조율하고, 내가 정할 것만 대시보드로 보냅니다"],
       ["해 봤는데 가격이 잘 안 보여", "원인을 찾아서 고칩니다"],
     ],
   },
