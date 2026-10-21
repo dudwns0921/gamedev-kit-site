@@ -2,11 +2,11 @@ import { BOARD_REPO, COPY, INSTALL, REPO, type Lang } from "./content";
 import CopyBlock from "./copy";
 import LangSwitch from "./lang-switch";
 import Scenes from "./scenes";
-import { RulesVisual, SyncVisual } from "./visuals";
+import { CeoVisual, RulesVisual, SyncVisual } from "./visuals";
 
 export default function Landing({ lang }: { lang: Lang }) {
   const t = COPY[lang];
-  const [r1, r2, r3] = t.reasons;
+  const [r0, r1, r2, r3] = t.reasons;
   const head = (i: number, r: (typeof t.reasons)[number]) => (
     <header className="reason-head">
       <span className="reason-n">{String(i + 1).padStart(2, "0")} · {r.problem}</span>
@@ -60,18 +60,23 @@ export default function Landing({ lang }: { lang: Lang }) {
           </ol>
         </section>
 
+        <section id={r0.id} className="in reason split">
+          {head(0, r0)}
+          <CeoVisual t={t.ceo} />
+        </section>
+
         <section id={r1.id} className="reason">
-          <div className="in">{head(0, r1)}</div>
+          <div className="in">{head(1, r1)}</div>
           <Scenes scenes={t.scenes.list} label={t.scenes.label} />
         </section>
 
-        <section id={r2.id} className="in reason split">
-          {head(1, r2)}
+        <section id={r2.id} className="in reason split flip">
+          {head(2, r2)}
           <SyncVisual t={t.sync} />
         </section>
 
-        <section id={r3.id} className="in reason split flip">
-          {head(2, r3)}
+        <section id={r3.id} className="in reason split">
+          {head(3, r3)}
           <RulesVisual t={t.rules} />
         </section>
 
